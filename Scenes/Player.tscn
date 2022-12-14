@@ -19,10 +19,6 @@ region_rect = Rect2( 350, 140, 50, 0 )
 position = Vector2( 0, 0.5 )
 shape = SubResource( 1 )
 
-<<<<<<< HEAD
-[node name="Camera2D" parent="." instance=ExtResource( 3 )]
-=======
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 smoothing_enabled = true
->>>>>>> d9742d1ca9dc77ba558c66acdf78d69db0cba888
