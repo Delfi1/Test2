@@ -16,12 +16,9 @@ func _physics_process(delta):
 	var x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	
 	if x_input != 0:
-		#animation.play("Run")
 		motion.x += x_input * ACCELERATION * delta	
 		motion.x = clamp(motion.x, -MAX_SPEED, MAX_SPEED)
 		sprite.flip_h = x_input < 0
-	#else:
-		#animation.play("Idle")
 		
 	motion.y += GRAVITY * delta
 	
@@ -29,10 +26,9 @@ func _physics_process(delta):
 		if x_input == 0:
 			motion.x = lerp(motion.x, 0, FRICTION)
 		
-		if Input.is_action_just_pressed("ui_up"):
+		if Input.is_action_pressed("ui_up"):
 			motion.y  = -JUMP_FORCE
 	else:
-		#animation.play("Jump")
 		
 		if Input.is_action_just_released("ui_up") and motion.y < -JUMP_FORCE/2:
 			motion.y = -JUMP_FORCE/2
