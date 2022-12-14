@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 alpha0.0.2
-=======
-alpha0.0.1
->>>>>>> d9742d1ca9dc77ba558c66acdf78d69db0cba888
