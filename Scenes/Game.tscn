@@ -56,11 +56,9 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-<<<<<<< HEAD
+
 position = Vector2( 60, 418 )
-=======
-position = Vector2( 133, 368 )
->>>>>>> d9742d1ca9dc77ba558c66acdf78d69db0cba888
+
 scale = Vector2( 1.8, 1.8 )
 
 [node name="TileMap" type="TileMap" parent="."]
