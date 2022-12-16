@@ -6,9 +6,6 @@ onready var zoomStep = 0.03 # Расстояние приближения
 onready var factorStep = 0.01
 
 
-func _ready():
-	pass
-
 func _process(delta):
 	zoom.x = lerp(zoom.x, zoomFactor * zoom.x, zoomSpeed * delta)
 	zoom.y = lerp(zoom.y, zoomFactor * zoom.y, zoomSpeed * delta)
