@@ -28,9 +28,9 @@ public class Updater : Panel
 	private async void _on_Button2_pressed()
 	{
 		if (GetNode<Button>("Button2").Text == "Confirm Update"){
-			GetTree().ReloadCurrentScene();
 			GetNode<Button>("Button2").Disabled = true;
-			await Task.Delay(1000);
+			await Task.Delay(5000);
+			GetTree().ReloadCurrentScene();
 			GetNode<Button>("Button2").Disabled = false;
 			GetNode<Button>("Button2").Text = "Download Update";
 		}
