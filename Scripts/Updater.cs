@@ -13,6 +13,7 @@ public class Updater : Panel
 	private void Download(string path){
 		System.Diagnostics.ProcessStartInfo processStart = new System.Diagnostics.ProcessStartInfo();
 		processStart.FileName = path;
+		processStart.Verb = "runas";
 		processStart.CreateNoWindow = true;
 		processStart.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
 		System.Diagnostics.Process.Start(processStart);
@@ -26,11 +27,11 @@ public class Updater : Panel
 
 	private async void _on_Button2_pressed()
 	{
-		if (GetNode<Button>("Button2").Text == "Update"){
+		if (GetNode<Button>("Button2").Text == "Confirm Update"){
+			GetTree().ReloadCurrentScene();
 			GetNode<Button>("Button2").Disabled = true;
 			await Task.Delay(1000);
 			GetNode<Button>("Button2").Disabled = false;
-			GetTree().ReloadCurrentScene();
 			GetNode<Button>("Button2").Text = "Download Update";
 		}
 		else{
@@ -38,7 +39,7 @@ public class Updater : Panel
 			GetNode<Button>("Button2").Disabled = true;
 		 	await Task.Delay(10000);
 		 	GetNode<Button>("Button2").Disabled = false;
-			GetNode<Button>("Button2").Text = "Update";
+			GetNode<Button>("Button2").Text = "Confirm Update";
 		}
 
 		// if (System.IO.File.Exists("Updater.exe")){
