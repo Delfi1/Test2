@@ -35,12 +35,15 @@ public class Updater : Panel
 				}
 				GetTree().ReloadCurrentScene();
 				GetNode<Button>("Button2").Disabled = false;
+				GetNode<Button>("Button").Disabled = false;
 				GetNode<Button>("Button2").Text = "Download Update";
 			}
 			else{
 				Download(UpdaterPath);
 				GetNode<Button>("Button2").Disabled = true;
+				GetNode<Button>("Button").Disabled = true;
 				GetNode<Button>("Button2").Text = "Confirm Update";
+				GetNode<Button>("Button2").Disabled = false;
 			}
 		}
 		else{
