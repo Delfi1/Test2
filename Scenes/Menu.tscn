@@ -25,14 +25,14 @@ custom_fonts/font = ExtResource( 2 )
 text = "Play"
 
 [node name="Button2" type="Button" parent="Panel"]
-margin_left = 8.0
+margin_left = 17.0
 margin_top = 552.0
-margin_right = 148.0
+margin_right = 157.0
 margin_bottom = 593.0
 grow_horizontal = 2
 grow_vertical = 2
 custom_fonts/font = ExtResource( 2 )
-text = "Update"
+text = "Download Update"
 
 [node name="Label" type="Label" parent="Panel"]
 margin_left = 358.0
@@ -50,17 +50,17 @@ align = 1
 valign = 1
 
 [node name="Label2" type="Label" parent="Panel"]
-margin_left = 9.0
-margin_top = 530.0
-margin_right = 150.0
-margin_bottom = 550.0
+margin_left = 11.0
+margin_top = 529.0
+margin_right = 152.0
+margin_bottom = 549.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 141, 0 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 custom_fonts/font = ExtResource( 2 )
-text = "Alpha 0.0.4"
+text = "Alpha 0.1.0"
 valign = 2
 
 [connection signal="pressed" from="Panel/Button" to="." method="_on_Play_Button_pressed"]
