@@ -8,7 +8,7 @@ const JUMP_FORCE = 150
 const AIR_RESISTANCE = 0.015
 
 onready var sprite = $Sprite
-onready var animation = $AnimationPlayer
+#onready var animation = $AnimationPlayer
 
 var motion = Vector2.ZERO
 

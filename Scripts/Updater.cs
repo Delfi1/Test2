@@ -27,21 +27,25 @@ public class Updater : Panel
 
 	private async void _on_Button2_pressed()
 	{
-		if (GetNode<Button>("Button2").Text == "Confirm Update"){
-			GetNode<Button>("Button2").Disabled = true;
-			await Task.Delay(5000);
-			GetTree().ReloadCurrentScene();
-			GetNode<Button>("Button2").Disabled = false;
-			GetNode<Button>("Button2").Text = "Download Update";
+		if (System.IO.File.Exists(UpdaterPath)){
+			if (GetNode<Button>("Button2").Text == "Confirm Update"){
+				GetNode<Button>("Button2").Disabled = true;
+				while (System.IO.File.Exists(fullPath + "\\Test2.pck")){
+					await Task.Delay(500);
+				}
+				GetTree().ReloadCurrentScene();
+				GetNode<Button>("Button2").Disabled = false;
+				GetNode<Button>("Button2").Text = "Download Update";
+			}
+			else{
+				Download(UpdaterPath);
+				GetNode<Button>("Button2").Disabled = true;
+				GetNode<Button>("Button2").Text = "Confirm Update";
+			}
 		}
 		else{
-			Download(UpdaterPath);
-			GetNode<Button>("Button2").Disabled = true;
-		 	await Task.Delay(10000);
-		 	GetNode<Button>("Button2").Disabled = false;
-			GetNode<Button>("Button2").Text = "Confirm Update";
+			GD.Print("Updater not exist!");
 		}
-
 		// if (System.IO.File.Exists("Updater.exe")){
 		// 	Launch(UpdaterPath);
 		// 	GetNode<Button>("Button2").Disabled = true;
