@@ -72,3 +72,7 @@ tile_data = PoolIntArray( -65570, 0, 0, -65544, -1610612735, 0, -34, 0, 0, -8, -
 
 [node name="Time" type="Node" parent="Effects"]
 script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="Effects/Time"]
+one_shot = true
+autostart = true
