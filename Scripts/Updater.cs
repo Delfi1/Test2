@@ -30,9 +30,6 @@ public class Updater : Panel
 		if (System.IO.File.Exists(UpdaterPath)){
 			if (GetNode<Button>("Button2").Text == "Confirm Update"){
 				GetNode<Button>("Button2").Disabled = true;
-				while (System.IO.File.Exists(fullPath + "\\Test2.pck")){
-					await Task.Delay(500);
-				}
 				GetTree().ReloadCurrentScene();
 				GetNode<Button>("Button2").Disabled = false;
 				GetNode<Button>("Button").Disabled = false;
@@ -43,6 +40,10 @@ public class Updater : Panel
 				GetNode<Button>("Button2").Disabled = true;
 				GetNode<Button>("Button").Disabled = true;
 				GetNode<Button>("Button2").Text = "Confirm Update";
+				await Task.Delay(50);
+				while (!System.IO.File.Exists(fullPath + "\\Test2.pck")){
+					await Task.Delay(500);
+				}
 				GetNode<Button>("Button2").Disabled = false;
 			}
 		}
