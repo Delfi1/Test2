@@ -40,13 +40,10 @@ public class Updater : Panel
 				GetNode<Button>("Button").Disabled = true;
 				GetNode<Button>("Button2").Text = "Confirm Update";
 				await Task.Delay(50);
-				if (System.IO.File.Exists(fullPath + "\\Test2.pck")){
-					System.IO.File.Delete(fullPath + "\\Test2.pck");
-					await Task.Delay(25);
-					Download(UpdaterPath);
-					while(!System.IO.File.Exists(fullPath + "\\Test2.pck")){
-						await Task.Delay(1000);
-					}
+				Download(UpdaterPath);
+				await Task.Delay(350);
+				while(!System.IO.File.Exists(fullPath + "\\Test2.pck")){
+					await Task.Delay(1000);
 				}
 				await Task.Delay(500);
 				GetNode<Button>("Button2").Disabled = false;
