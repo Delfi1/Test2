@@ -13,7 +13,7 @@ onready var sprite = $Sprite
 var motion = Vector2.ZERO
 
 func _ready():
-	hp(false)
+	hp()
 
 func _physics_process(delta):
 	var x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -41,8 +41,8 @@ func _physics_process(delta):
 		
 	motion = move_and_slide(motion, Vector2.UP)
 
-func hp(state):
-	if state == true:
-		pass
-	else:
+func hp():
+	if get_node("TextureProgress").value == 0:
 		get_node("TextureProgress").visible = false;
+	else:
+		pass

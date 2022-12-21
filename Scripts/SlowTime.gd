@@ -2,13 +2,13 @@ extends Node
 
 const END_VALUE = 1
 
-var is_active = false
+var is_active := false
 var time_start
 var duration_ms
 var start_value
+var auto_slow := false
 
-
-func start(duration = 2.5, strength = 0.9):
+func start(duration = 4.75, strength = 0.85):
 	time_start = OS.get_ticks_msec()
 	duration_ms = duration * 1000
 	start_value = 1 - strength
@@ -16,12 +16,12 @@ func start(duration = 2.5, strength = 0.9):
 	is_active = true
 
 var timer = null
-var slow_mode_reload = 5.5
+const SMR = 6.0
 var can_use = false
 
 func _ready():
 	timer = get_node("Timer")
-	timer.set_wait_time(slow_mode_reload)
+	timer.set_wait_time(SMR)
 	timer.connect("timeout", self, "_on_timeout_complete")
 
 func _on_timeout_complete():
@@ -29,7 +29,11 @@ func _on_timeout_complete():
 
 func _process(delta):
 	#print("test ", is_active)
-	if Input.is_action_pressed("Slow") and can_use:
+
+	if Input.is_action_just_pressed("auto_slow"):
+		auto_slow = !auto_slow
+		
+	if (Input.is_action_pressed("Slow") or auto_slow) and can_use:
 		start()
 		can_use = false
 		timer.start()
