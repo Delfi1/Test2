@@ -12,8 +12,6 @@ onready var sprite = $Sprite
 
 var motion = Vector2.ZERO
 
-func _ready():
-	hp()
 
 func _physics_process(delta):
 	var x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -32,7 +30,6 @@ func _physics_process(delta):
 		if Input.is_action_pressed("ui_up"):
 			motion.y  = -JUMP_FORCE
 	else:
-		
 		if Input.is_action_just_released("ui_up") and motion.y < -JUMP_FORCE/2:
 			motion.y = -JUMP_FORCE/2
 		
@@ -40,9 +37,3 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, AIR_RESISTANCE)
 		
 	motion = move_and_slide(motion, Vector2.UP)
-
-func hp():
-	if get_node("TextureProgress").value == 0:
-		get_node("TextureProgress").visible = false;
-	else:
-		pass

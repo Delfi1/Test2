@@ -34,6 +34,7 @@ public class Updater : Panel
 				GetNode<Button>("Button2").Disabled = false;
 				GetNode<Button>("Button").Disabled = false;
 				GetNode<Button>("Button2").Text = "Download Update";
+				GetTree().ReloadCurrentScene();
 			}
 			else{
 				GetNode<Button>("Button2").Disabled = true;
